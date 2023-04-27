@@ -1,40 +1,48 @@
 
-
-function convertPokemonTypeToLi(pokemonTypes) {
-  return pokemonTypes.map((typeSlot) => `<li class="type">${typeSlot.type.name}</li>`)}
-
-
-
-
+const pokemonLista = document.getElementById('pokemonLista');
+const loadMoreButton = document.getElementById('loadMoreButton');
+let offset = 0;
+const limit = 10;
+const maxRecords = 151;
 
 
+function loadPokemons(offset, limit) {
+  pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
+    const newHtml = pokemons.map((pokemon) => `
+    <li class="pokemon ${pokemon.type}">
+          <span class="number">#${pokemon.number}</span>
+          <span class="name">${pokemon.name}</span>
 
-const pokemonLista = document.getElementById('pokemonList');
+          <div class="detail">
+              <ol class="types">
+                  ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
+              </ol>
+              <img src="${pokemon.picture}"
+                  alt="${pokemon.name}">
+          </div>
+      </li>
+  `).join('')
+    pokemonLista.innerHTML += newHtml;
+
+  })
+
+}
+
+loadPokemons(offset, limit);
 
 
-function convertPokemontoLi(pokemon) {
-  return `
-          <li class="pokemon">
-                <span class="number">#${pokemon.order}</span>
-                <span class="name">${pokemon.name}</span>
+loadMoreButton.addEventListener('click', () => {
+  offset += limit
+  const qtdRercordsNextPage = offset + limit;
 
-                <div class="detail">
-                    <ol class="types">
-                        ${convertPokemonTypeToLi(pokemon.types).join('')}
-                        <li class="type">Poison</li>
-                    </ol>
+  if (qtdRercordsNextPage >= maxRecords){
+    const newLimit =  maxRecords - offset;
+    loadPokemons(offset, newLimit);
 
-                    <img src="${pokemon.sprites.other.dream_world.front_default}"
-                        alt="${pokemon.name}">
-                </div>
-            </li>
-        `
-};
+    loadMoreButton.parentElement.removeChild(loadMoreButton)
 
-pokeApi.getPokemons().then((pokemons = []) => {
-  pokemonLista.innerHTML += pokemons.map(convertPokemontoLi).join('');
+  } else {
+    loadPokemons(offset, limit);
+  }
 
 })
-
-
-

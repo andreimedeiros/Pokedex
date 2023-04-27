@@ -32,84 +32,21 @@
 
     <section class="content">
         <h1>Pokedex</h1>
+        <ol class="pokemons" id="pokemonLista"></ol>
 
-        <ol class="pokemons" id="pokemonList">
-            <!-- <li class="pokemon">
-                <span class="number">#0001</span>
-                <span class="name">Bulbasaur</span>
+        <div class="pagination">
+            <button id="loadMoreButton" type="button">
+                Load More Pokemons
+            </button>
+        </div>
 
-                <div class="detail">
-                    <ol class="types">
-                        <li class="type">Grass</li>
-                        <li class="type">Poison</li>
-                    </ol>
-
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
-                        alt="Bulbasaur">
-                </div>
-            </li> -->
-
-            <!-- <li>
-                Ivysaur
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg"
-                    alt="">
-            </li>
-
-            <li>
-                Venusaur
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/3.svg"
-                    alt="">
-            </li>
-
-            <li>
-                Charmander
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/4.svg"
-                    alt="">
-            </li>
-            <li>
-                Charmeleon
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/5.svg"
-                    alt="">
-            </li>
-            <li>
-                Charizard
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/6.svg"
-                    alt="">
-            </li> -->
-
-
-
-
-        </ol>
     </section>
 
 
 
-
-    <!-- <script>
-
-        const btn = document.getElementById('btn');
-        btn.addEventListener("click", () => {
-            const h1List = document.getElementsByTagName("h1");
-            const h1lsita = Array.from(h1List);
-            h1lsita.forEach(e => {
-                e.style.color = 'purple'
-
-            });
-        }
-            // for (let i = 0; i < h1List.length; i++) {
-            //     h1List[i].style.color = 'blue';
-
-
-
-        )
-
-
-
-    </script> -->
-
     <script src="./assets/js/poke-api.js"></script>
     <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/pokemon.model.js"></script>
 
 </body>
 
