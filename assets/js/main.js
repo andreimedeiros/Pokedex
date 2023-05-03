@@ -20,6 +20,20 @@ function loadPokemons(offset, limit) {
               <img src="${pokemon.picture}"
                   alt="${pokemon.name}">
           </div>
+          <div class="pokemonskills">
+
+
+
+          
+          <span>
+            <ol>
+           
+            ${pokemon.abilities}
+            </ol>
+
+          </span>
+
+          </div>
       </li>
   `).join('')
     pokemonLista.innerHTML += newHtml;

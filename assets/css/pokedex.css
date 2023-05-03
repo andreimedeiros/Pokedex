@@ -152,6 +152,13 @@
     color: white;
 }
 
+.pokemonskills {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin-top: .5rem;
+    border-radius: 1rem;
+}
 
 @media screen and (min-width: 380px) {
     

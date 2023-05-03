@@ -18,7 +18,15 @@ function convertPokeApiDetailToPokemon(pokemonDetail) {
     
     pokemon.picture = pokemonDetail.sprites.other.dream_world.front_default
 
+
+    pokemon.abilities = pokemonDetail.abilities.map((abilityslot) => {
+        if (abilityslot.is_hidden === false) {
+            return abilityslot.ability.name;
+        }
+    })
+    // debugger
     return pokemon
+
 }
 
 pokeApi.getPokemonsDetails = (pokemon) => {
@@ -33,7 +41,7 @@ pokeApi.getPokemons = (offset = 0, limit = 5) => {
     return fetch(urlpokeapi)
         .then((response) => response.json())
         .then((jsonBody) => jsonBody.results)
-        .then((pokemonss) => pokemonss.map(pokeApi.getPokemonsDetails))
+        .then((pokemons) => pokemons.map(pokeApi.getPokemonsDetails))
         .then((detailsRequest) => Promise.all(detailsRequest))
         .then((pokemonDetails) => pokemonDetails)
         .catch((error) => console.error(error))
