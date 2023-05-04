@@ -133,6 +133,9 @@
     /* align-self: flex-end; */
 }
 
+
+
+
 .pagination {
     display: flex;
     flex-direction: row;
@@ -152,13 +155,63 @@
     color: white;
 }
 
+.pagination button{
+    padding: .5rem .5rem;
+    margin: .25rem 0;
+    /* font-size: .625rem; */
+    background-color: #6c79db;
+    border: none;
+    border-radius: .5rem;
+    color: white;
+    
+}
+
+.pagination button:hover{
+    cursor: pointer;
+}
+
+.pagination button:active {
+    font-size: 1rem;
+    transform: scale(.9);
+    box-shadow: 0 3px 15px -2px;
+  }
+
+
+
 .pokemonskills {
     background-color: white;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     margin-top: .5rem;
+    padding: .5rem;
     border-radius: 1rem;
 }
+
+.abilities, .stats {
+    display: flex;
+    flex-direction: column;
+    text-transform: capitalize;
+}
+.stats ul {
+    list-style: none;
+    text-align: left;
+    padding: 0;
+    font-size: .85rem;
+    margin-right: -1rem;
+}
+
+.abilities {
+    text-align: end;
+}
+
+.abilities ul {
+    list-style: none;
+    justify-content: end;
+    padding: 0;
+    font-size: .95rem;
+}
+
 
 @media screen and (min-width: 380px) {
     

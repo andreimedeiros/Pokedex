@@ -19,12 +19,17 @@ function convertPokeApiDetailToPokemon(pokemonDetail) {
     pokemon.picture = pokemonDetail.sprites.other.dream_world.front_default
 
 
-    pokemon.abilities = pokemonDetail.abilities.map((abilityslot) => {
+    pokemon.abilities = pokemonDetail.abilities.reduce((abilities, abilityslot) => {
         if (abilityslot.is_hidden === false) {
-            return abilityslot.ability.name;
+            abilities.push(abilityslot.ability);
         }
-    })
-    // debugger
+    
+        return abilities
+    }, [])
+
+    pokemon.stats = pokemonDetail.stats;
+  
+   
     return pokemon
 
 }

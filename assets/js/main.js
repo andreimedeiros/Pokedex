@@ -21,17 +21,18 @@ function loadPokemons(offset, limit) {
                   alt="${pokemon.name}">
           </div>
           <div class="pokemonskills">
-
-
-
-          
-          <span>
-            <ol>
-           
-            ${pokemon.abilities}
-            </ol>
-
-          </span>
+            <div class="stats">
+              <h4>Stats</h4>
+              <ul>
+              ${pokemon.stats.map((stats => `<li>${stats.stat.name}: ${stats.base_stat}</li>`)).join('')}
+              </ul>
+            </div>
+            <div class="abilities">
+              <h4>Abilities</h4>
+                <ul>
+                  ${pokemon.abilities.map((slot) => `<li>${slot.name}</li>`).join('')}
+                </ul>
+            </div>
 
           </div>
       </li>
@@ -49,8 +50,8 @@ loadMoreButton.addEventListener('click', () => {
   offset += limit
   const qtdRercordsNextPage = offset + limit;
 
-  if (qtdRercordsNextPage >= maxRecords){
-    const newLimit =  maxRecords - offset;
+  if (qtdRercordsNextPage >= maxRecords) {
+    const newLimit = maxRecords - offset;
     loadPokemons(offset, newLimit);
 
     loadMoreButton.parentElement.removeChild(loadMoreButton)
