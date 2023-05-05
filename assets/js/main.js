@@ -21,24 +21,21 @@ function loadPokemons(offset, limit) {
         </div>
 
         <div id="pokemon-${pokemon.id}" class="tab">
-        <button class="tablinks active" onclick="toggleTabs(event, 'stats')">Stats</button>
-        <button class="tablinks" onclick="toggleTabs(event, 'abilities')">Abilities</button>
+          <button class="tablinks active" onclick="toggleTabs(event, 'stats')">Stats</button>
+          <button class="tablinks" onclick="toggleTabs(event, 'abilities')">Abilities</button>
         
-  
-  <div id="stats" class="tabcontent">
-    <h4>Stats</h4>
-    <ul>
-      ${pokemon.stats.map((stats => `<li>${stats.stat.name}: ${stats.base_stat}</li>`)).join('')}
-    </ul>
-  </div>
-  
-  <div id="abilities" class="tabcontent" style="display: none;">
-    <h4>Abilities</h4>
-    <ul>
-      ${pokemon.abilities.map((slot) => `<li>${slot.name}</li>`).join('')}
-    </ul>
-  </div>
-</div>
+            <div id="stats" class="tabcontent">
+                <ul>
+                  ${pokemon.stats.map((stats => `<li>${stats.stat.name}: ${stats.base_stat}</li>`)).join('')}
+                </ul>
+            </div>
+          
+            <div id="abilities" class="tabcontent" style="display: none;">
+                <ul>
+                  ${pokemon.abilities.map((slot) => `<li>${slot.name}</li>`).join('')}
+                </ul>
+            </div>
+        </div>
       </li>
     `).join('');
     pokemonLista.innerHTML += newHtml;
