@@ -19,10 +19,12 @@ function loadPokemons(offset, limit) {
           </ol>
           <img src="${pokemon.picture}" alt="${pokemon.name}">
         </div>
-
+        
+        
+        
         <div id="pokemon-${pokemon.id}" class="tab">
-          <button class="tablinks active" onclick="toggleTabs(event, 'stats')">Stats</button>
-          <button class="tablinks" onclick="toggleTabs(event, 'abilities')">Abilities</button>
+        <button class="tablinks active" onclick="toggleTabs(event, 'stats')">Stats</button>
+        <button class="tablinks" onclick="toggleTabs(event, 'abilities')">Abilities</button>
         
             <div id="stats" class="tabcontent">
                 <ul>
